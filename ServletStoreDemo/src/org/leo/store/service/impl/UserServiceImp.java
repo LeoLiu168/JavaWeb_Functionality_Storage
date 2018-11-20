@@ -39,4 +39,20 @@ public class UserServiceImp implements UserService {
 		}
 	}
 
+	@Override
+	public User userLogin(User user) throws SQLException {
+		//此处:可以利用异常在模块之间传递数据
+		
+		UserDao UserDao=new UserDaoImp();
+		//select * from user where username=? and password=?
+		User uu=UserDao.userLogin(user);
+		if(null==uu){
+			throw new RuntimeException("密码有误!");
+		}else if(uu.getState()==0){
+			throw new RuntimeException("用户未激活!");
+		}else{
+			return uu;
+		}
+	}
+
 }

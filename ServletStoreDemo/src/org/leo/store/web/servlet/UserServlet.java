@@ -27,6 +27,11 @@ public class UserServlet extends BaseServlet {
 			throws ServletException, IOException {
 		return "/jsp/register.jsp";
 	}
+	//处理从首页跳到登录页面的逻辑
+	public String loginUI(HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		return "/jsp/login.jsp";
+	}
 	
 	//用户注册模块的注册功能点
 	public String userRegist(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -67,7 +72,7 @@ public class UserServlet extends BaseServlet {
 		}
 		return "/jsp/info.jsp";
 	}
-	
+	//用户激活功能点
 	public String active(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		//获取激活码
 		String code=request.getParameter("code");
@@ -85,6 +90,42 @@ public class UserServlet extends BaseServlet {
 			request.setAttribute("msg", "用户激活失败,请重新激活!");
 			return  "/jsp/info.jsp";
 		}
+	}
+	
+	//userLogin
+	public String userLogin(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		//获取用户数据(账户/密码)
+		User user=new User();
+		MyBeanUtils.populate(user, request.getParameterMap());
+		
+		//调用业务层登录功能
+		UserService UserService=new UserServiceImp();
+		User user02=null;
+		try {
+			//select * from user where username=?  and password=?
+			user02=UserService.userLogin(user);
+			//用户登录成功,将用户信息放入session中
+			request.getSession().setAttribute("loginUser", user02);
+			//重定向到首页
+			response.sendRedirect("/store_v5/index.jsp");
+			return null;
+		} catch (Exception e) {
+			//用户登录失败
+			String msg=e.getMessage();
+			System.out.println(msg);
+			//向request放入失败的信息
+			request.setAttribute("msg", msg);
+			return "/jsp/login.jsp";
+		}
+	}
+	
+	//用户退出
+	public String logOut(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		  //清除session
+		  request.getSession().invalidate();
+		  //重新定向到首页
+		  response.sendRedirect("/store_v5/index.jsp");
+		  return null;	
 	}
 	
 

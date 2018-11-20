@@ -27,7 +27,7 @@
 				</div>
 				<div class="col-md-3" style="padding-top:20px">
 					<ol class="list-inline">
-					
+					<%-- 根据Session中的loginUser是否为空, 来判断展示的内容 --%>
 					  <c:if test="${empty loginUser}">					
 						<li><a href="${pageContext.request.contextPath}/UserServlet?method=loginUI">登录</a></li>
 						<li><a href="${pageContext.request.contextPath}/UserServlet?method=registUI">注册</a></li>
@@ -87,7 +87,7 @@
 $(function(){
 	//向服务端CategoryServlet__>gteAllCats发起ajax请求,服务端经过处理,
 	//将所有分类信息以JSON格式的数据返回,获取到返回的所有分类绑定在页面的显示分类区域
-	var url="/store_v5/CategoryServlet";
+	var url="/ServletStoreDemo/CategoryServlet";
 	var obj={"method":"findAllCats"};
 	$.post(url,obj,function(data){
 		//alert(data);
@@ -99,7 +99,6 @@ $(function(){
 		});
 		
 	},"json");
-	
 	
 });
 </script>

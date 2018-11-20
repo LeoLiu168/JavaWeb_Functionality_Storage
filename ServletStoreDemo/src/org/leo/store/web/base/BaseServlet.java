@@ -38,5 +38,9 @@ public class BaseServlet extends HttpServlet {
 			e.printStackTrace();
 		}
     }
+    //BaseServlet的默认方法
+	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		return null;
+	}
 
 }
