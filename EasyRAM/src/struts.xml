@@ -6,7 +6,6 @@
 	
 	<!-- 配置Struts2的常量 -->
 	<constant name="struts.action.extension" value="action"/>
-	
 	<package name="EasyRAM" extends="struts-default" namespace="/">
 		<!-- 配置用户管理的Action -->
 		<action name="user_*" class="userAction" method="{1}">
@@ -16,6 +15,9 @@
 		<!-- 配置账户管理的Action -->
 		<action name="account_*" class="accountAction" method="{1}">
 			<result name="saveUI">/jsp/account/add.jsp</result>
+		</action>
+		<!-- 配置字典管理的Action -->
+		<action name="baseDict_*" class="baseDictAction" method="{1}">
 		</action>
 	</package>
 	

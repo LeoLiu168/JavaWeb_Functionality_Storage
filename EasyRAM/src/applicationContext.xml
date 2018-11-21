@@ -42,6 +42,8 @@
 		<property name="mappingResources">
 			<list>
 				<value>org/leo/ram/domain/User.hbm.xml</value>
+				<value>org/leo/ram/domain/Account.hbm.xml</value>
+				<value>org/leo/ram/domain/BaseDict.hbm.xml</value>
 			</list>
 		</property>
 	</bean>
@@ -74,6 +76,22 @@
 	
 	<!-- 配置DAO -->
 	<bean id="accountDao" class="org.leo.ram.dao.impl.AccountDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<!-- 配置字典相关的类 -->
+	<!-- 配置Action -->
+	<bean id="baseDictAction" class="org.leo.ram.web.action.BaseDictAction" scope="prototype">
+		<property name="baseDictService" ref="baseDictService" />
+	</bean>
+	
+	<!-- 配置Service -->
+	<bean id="baseDictService" class="org.leo.ram.service.impl.BaseDictServiceImpl">
+		<property name="baseDictDao" ref="baseDictDao" />
+	</bean>
+	
+	<!-- 配置DAO -->
+	<bean id="baseDictDao" class="org.leo.ram.dao.impl.BaseDictDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 	

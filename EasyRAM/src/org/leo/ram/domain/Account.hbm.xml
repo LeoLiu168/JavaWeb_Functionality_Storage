@@ -10,10 +10,15 @@
 		</id>
 		
 		<property name="acct_name" column="acct_name"/>
-		<property name="acct_location" column="acct_location"/>
+		<!-- <property name="acct_location" column="acct_location"/>
 		<property name="acct_type" column="acct_type"/>
-		<property name="acct_level" column="acct_level"/>
+		<property name="acct_level" column="acct_level"/> -->
 		<property name="acct_phone" column="acct_phone"/>
 		<property name="acct_serial" column="acct_serial"/>
+		
+		<!-- 配置账户与字典的多对一映射 -->
+		<many-to-one name="baseDictLocation" class="org.leo.ram.domain.BaseDict" column="acct_location" />
+		<many-to-one name="baseDictType" class="org.leo.ram.domain.BaseDict" column="acct_type" />
+		<many-to-one name="baseDictLevel" class="org.leo.ram.domain.BaseDict" column="acct_level" />
 	</class>
 </hibernate-mapping>   

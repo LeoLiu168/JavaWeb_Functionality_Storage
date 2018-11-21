@@ -18,11 +18,19 @@ public class Account {
 	
 	private Long acct_id;
 	private String acct_name;
-	private String acct_location;
-	private String acct_type;
-	private String acct_level;
+//	private String acct_location;
+//	private String acct_type;
+//	private String acct_level;
 	private String acct_phone;
 	private String acct_serial;
+	/**
+	 * 账户和字典表示多对一的关系: 需要在多的一方组合一的对象
+	 * @return
+	 */
+	private BaseDict baseDictLocation;
+	private BaseDict baseDictType;
+	private BaseDict baseDictLevel;
+	
 	public Long getAcct_id() {
 		return acct_id;
 	}
@@ -35,24 +43,6 @@ public class Account {
 	public void setAcct_name(String acct_name) {
 		this.acct_name = acct_name;
 	}
-	public String getAcct_location() {
-		return acct_location;
-	}
-	public void setAcct_location(String acct_location) {
-		this.acct_location = acct_location;
-	}
-	public String getAcct_type() {
-		return acct_type;
-	}
-	public void setAcct_type(String acct_type) {
-		this.acct_type = acct_type;
-	}
-	public String getAcct_level() {
-		return acct_level;
-	}
-	public void setAcct_level(String acct_level) {
-		this.acct_level = acct_level;
-	}
 	public String getAcct_phone() {
 		return acct_phone;
 	}
@@ -64,6 +54,24 @@ public class Account {
 	}
 	public void setAcct_serial(String acct_serial) {
 		this.acct_serial = acct_serial;
+	}
+	public BaseDict getBaseDictLocation() {
+		return baseDictLocation;
+	}
+	public void setBaseDictLocation(BaseDict baseDictLocation) {
+		this.baseDictLocation = baseDictLocation;
+	}
+	public BaseDict getBaseDictType() {
+		return baseDictType;
+	}
+	public void setBaseDictType(BaseDict baseDictType) {
+		this.baseDictType = baseDictType;
+	}
+	public BaseDict getBaseDictLevel() {
+		return baseDictLevel;
+	}
+	public void setBaseDictLevel(BaseDict baseDictLevel) {
+		this.baseDictLevel = baseDictLevel;
 	}
 	
 }
