@@ -42,7 +42,7 @@
 </HEAD>
 <BODY>
 	<FORM id=form1 name=form1
-		action="${pageContext.request.contextPath }/customer_save.action"
+		action="${pageContext.request.contextPath }/account_save.action"
 		method=post>
 		
 
@@ -84,7 +84,7 @@
 								</td>
 								<td>账户级别 ：</td>
 								<td>
-								<select id="acct_level">
+								<select id="acct_level" name="baseDictLevel.dict_id">
 									<option value="">-请选择-</option>
 								</select>
 								
@@ -95,13 +95,13 @@
 								
 								<td>注册来源 ：</td>
 								<td>
-								<select id="acct_location">
+								<select id="acct_location" name="baseDictLocation.dict_id">
 									<option value="">-请选择-</option>
 								</select>
 								</td>
 								<td>账户类型 ：</td>
 								<td>
-								<select id="acct_type">
+								<select id="acct_type" name="baseDictType.dict_id">
 									<option value="">-请选择-</option>
 								</select>
 								</td>

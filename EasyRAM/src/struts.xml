@@ -15,6 +15,7 @@
 		<!-- 配置账户管理的Action -->
 		<action name="account_*" class="accountAction" method="{1}">
 			<result name="saveUI">/jsp/account/add.jsp</result>
+			<result name="findAll">/jsp/account/list.jsp</result>
 		</action>
 		<!-- 配置字典管理的Action -->
 		<action name="baseDict_*" class="baseDictAction" method="{1}">

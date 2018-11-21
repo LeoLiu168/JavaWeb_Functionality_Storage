@@ -134,7 +134,7 @@ A.active {
 														target=main>－ 新增账户</A></TD>
 												</TR>
 												<TR> 
-													<TD class=menuSmall><A class=style2 href="${ pageContext.request.contextPath }/customer_find.action"
+													<TD class=menuSmall><A class=style2 href="${ pageContext.request.contextPath }/account_findAll.action"
 														target=main>－ 账户列表</A></TD>
 												</TR>
 												
