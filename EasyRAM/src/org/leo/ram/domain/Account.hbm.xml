@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+ 
+<hibernate-mapping>
+	<class name="org.leo.ram.domain.Account" table="ram_account">
+		<id name="acct_id" column="acct_id">
+			<generator class="native"/>
+		</id>
+		
+		<property name="acct_name" column="acct_name"/>
+		<property name="acct_location" column="acct_location"/>
+		<property name="acct_type" column="acct_type"/>
+		<property name="acct_level" column="acct_level"/>
+		<property name="acct_phone" column="acct_phone"/>
+		<property name="acct_serial" column="acct_serial"/>
+	</class>
+</hibernate-mapping>   
