@@ -20,6 +20,17 @@
   	<param-value>classpath:applicationContext.xml</param-value>
   </context-param>
   
+  <!-- 通过Spring的在View层开启Session功能解决Hibernate的延迟加载问题, 需要在Struts2的过滤器前面,否则会被覆盖失效 -->
+  <filter>
+  	<filter-name>OpenSessionInViewFilter</filter-name>
+  	<filter-class>org.springframework.orm.hibernate5.support.OpenSessionInViewFilter</filter-class>
+  </filter>
+  
+  <filter-mapping>
+  	<filter-name>OpenSessionInViewFilter</filter-name>
+  	<url-pattern>*.action</url-pattern>
+  </filter-mapping>
+  
   <!-- Struts2的核心过滤器 -->
   <filter>
   	<filter-name>struts2</filter-name>
@@ -31,14 +42,5 @@
   	<url-pattern>/*</url-pattern>
   </filter-mapping>
   
-  <filter>
-  	<filter-name>OpenSessionInViewFilter</filter-name>
-  	<filter-class>org.springframework.orm.hibernate5.support.OpenSessionInViewFilter</filter-class>
-  </filter>
-  
-  <filter-mapping>
-  	<filter-name>OpenSessionInViewFilter</filter-name>
-  	<url-pattern>*.action</url-pattern>
-  </filter-mapping>
   
 </web-app>
